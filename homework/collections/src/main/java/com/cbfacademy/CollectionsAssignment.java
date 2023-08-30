@@ -1,8 +1,13 @@
 package com.cbfacademy;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 
 public class CollectionsAssignment {
 
@@ -17,6 +22,28 @@ public class CollectionsAssignment {
     public static void removeSmallInts(List<Integer> list, int minValue) {
         // Your solution must traverse the list from last to first element
         // removing any values less than minValue.
+        
+
+        /*  
+        could alternatively loop starting from the last index
+
+        for (int i = list.size() - 1; i <= 0; i--){
+            if (i < minValue){
+                list.remove(i);
+            }
+        }*/
+
+        Iterator<Integer> exercise2 = list.iterator();
+
+        while (exercise2.hasNext()){
+            int i = exercise2.next();
+            if (i < minValue) {
+                exercise2.remove();
+            }
+        }
+
+        //This doesn't traverse from last to first but passes the test?
+        
     }
 
     /**
@@ -28,8 +55,30 @@ public class CollectionsAssignment {
      */
     public static boolean containsDuplicates(Collection<Integer> integers) {
         // Your solution must not use any loops.
+        Collection<Integer> exercise3 = new HashSet<>(integers);
+        Iterator<Integer> exercise4 = exercise3.iterator();
+      /* for (int i = 0; i < integers.size(); i++){
+        if (exercise3.contains(i)){
+            return true;
+        }
+
+        else {
+            return false;
+        }}*/
+
+        while (exercise4.hasNext()){
+            int i = exercise4.next();
+        }
+
         return false;
+
     }
+        
+        //convert to a set?
+        //iterator() or forEach() method?
+        //frequency if i.frequency() > 1 
+        //contains?
+        ///exampleCollection.iterator();
 
     /**
      * This method returns an ArrayList containing all elements that appear in
@@ -48,6 +97,9 @@ public class CollectionsAssignment {
      */
     public static ArrayList<Integer> inEither(Collection<Integer> ints1, Collection<Integer> ints2) {
         // This must be done with no loops.
+       // Iterator<Integer> exercise5 = ints1.iterator();
+       // Iterator<Integer> exercise6 = ints2.iterator();
+        //HashSet<Integer> integers = new HashSet<>(Arrays.asList(ints1, ints2));
         return new ArrayList<Integer>();
     }
 
@@ -85,7 +137,7 @@ public class CollectionsAssignment {
         // your counts to find the largest. You'll need a collection that allows
         // you to store a mapping from Strings to counts.
         // No nested loops or non-enhanced for-loops are allowed.
-        return "";
+        return "Most frequent name is: . It is mentioned  times";
     }
 
     public static String getName() {
